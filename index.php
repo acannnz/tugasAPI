@@ -9,7 +9,13 @@ function get_CURL($url)
 
   return json_decode($result, true);
 }
-$ytprofil = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCoIiiHof6BJ85PLuLkuxuhw&key=AIzaSyB1A4--UgtgVEMkb0h71JNsenlLwFt4JgA');
+$ytprofil = $result['items'][0]['snippet']['thumbnails']['high']['url'];
+$ytname = $result['items'][0]['snippet']['title'];
+$ytsub = $result['items'][0]['statistics']['subscriberCount'];
+
+$result2 = get_CURL('https://www.googleapis.com/youtube/v3/search?key=AIzaSyB1A4--UgtgVEMkb0h71JNsenlLwFt4JgA&channelId=UCoIiiHof6BJ85PLuLkuxuhw&maxResults=1&order=date&part=snippet');
+$ytvideo = $result2['items'][0]['id']['videoId'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,44 +83,42 @@ $ytprofil = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
           <h2>API-YOUTUBE</h2>
         </div>
       </div>
-      <div class="row col-12 justify-content-center">
-        <div class="embed embed-responsive embed-responsive-l6by9">
-          <iframe class="embed embed-responsive-item" src="<?php $ytprofil ?>" allowfullscreen></iframe>
+      <div class="row col-12">
+        <div class="col-6 ">
+          <img class="img " src="<?= $ytprofil; ?>" alt="">
         </div>
+        <div class="col-6">
+          <p class="label-chanel"><?= $ytname; ?></p>
+          <p class="label-chanel-sub"><?= $ytsub; ?> Subsciber</p>
+          <div class="g-ytsubscribe" data-channelid="UCoIiiHof6BJ85PLuLkuxuhw" data-layout="default" data-count="default"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container container-video">
+      <div class="label-video">Video Terbaru :</div>
+      <div class="embed embed-responsive embed-responsive-l6by9 col-6">
+        <iframe class="embed embed-responsive-item" src="https://www.youtube.com/embed/<?= $ytvideo ?>?rel=0" allowfullscreen></iframe>
       </div>
     </div>
   </section>
   <!-- ------About me end------ -->
 
   <!-- ------Skill Start------ -->
-  <section id="skill" class="section-sk">
-    <div class="container container-fluid skill-container">
-      <div class="row col-12">
-        <div class="text-center py-4">
-          <h2>SKILL</h2>
+  <section id="about" class="section-sk">
+    <div class="container about-container">
+      <div class="row">
+        <div class="about-title col-12 text-center py-4">
+          <h2>API-YOUTUBE</h2>
         </div>
       </div>
-      <div class="row col-12 px-lg-5 ">
-        <div class="col-4">
-          <div>
-            <i class="fa-solid fa-palette"></i>
-            <h2>CSS</h2>
-            <p>ldkansldkandlkandalknda</p>
-          </div>
+      <div class="row col-12">
+        <div class="col-6 ">
+          <img class="img " src="<?= $ytprofil; ?>" alt="">
         </div>
-        <div class="col-4">
-          <div>
-            <i class="fa-solid fa-code"></i>
-            <h2>HTML</h2>
-            <p>ldkansldkandlkandalknda</p>
-          </div>
-        </div>
-        <div class="col-4">
-          <div>
-            <i class="fa-brands fa-square-js"></i>
-            <h2>JavaScript</h2>
-            <p>ldkansldkandlkandalknda</p>
-          </div>
+        <div class="col-6">
+          <p class="label-chanel"><?= $ytname; ?></p>
+          <p class="label-chanel-sub"><?= $ytsub; ?> Subsciber</p>
+
         </div>
       </div>
     </div>
@@ -124,6 +128,7 @@ $ytprofil = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
   <!-- script -->
   <script>
   </script>
+  <script src="https://apis.google.com/js/platform.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

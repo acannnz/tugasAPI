@@ -70,18 +70,54 @@ header::before {
     color: goldenrod;
 }
 
+.about-container {
+    width: 400px;
+}
+
 .section-ab {
     padding-top: 100px;
     background-color: black;
 }
 
 .section-sk {
-    background-image: url(image/about.png);
+    background-color: rgba(54, 54, 54, 0.667);
+}
+
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: 60px;
+    position: relative;
+}
+
+.label-chanel {
+    color: white;
+    font-size: 20px;
+}
+
+.label-chanel-sub {
+    color: rgb(206, 205, 205);
+    font-size: 15px;
+}
+
+.label-video {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.container-video {
+    width: 700px;
+    height: 500px;
+    padding-bottom: 40px;
 }
 
 .embed {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     align-items: center;
     position: relative;
 }
