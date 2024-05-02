@@ -1,0 +1,87 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    background-image: url(image/background.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+    position: relative;
+}
+
+.navbar {
+    z-index: 1000;
+    width: 80%;
+    left: 10%;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    background-color: rgba(252, 252, 252, 0.3);
+    border-radius: 40px;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+.nav-link {
+    color: rgb(255, 255, 255);
+    z-index: 2;
+}
+
+.nav-link:hover {
+    color: rgb(205, 196, 63);
+}
+
+.jumbotron {
+    position: relative;
+    z-index: 1;
+}
+
+.jumbotron-title {
+    margin-top: 150px;
+    color: white;
+}
+
+.jumbotron-text {
+    color: white;
+}
+
+.fa-brands {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.section-ab {
+    background-image: url(image/yt.png);
+    background-size: cover;
+    height: 900px;
+}
+
+.about-title {
+    color: goldenrod;
+}
+
+.section-ab {
+    padding-top: 100px;
+    background-color: black;
+}
+
+.section-sk {
+    background-image: url(image/about.png);
+}
+
+.embed {
+    width: 600px;
+    height: 400px;
+    align-items: center;
+    position: relative;
+}
