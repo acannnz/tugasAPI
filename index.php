@@ -9,7 +9,7 @@ function get_CURL($url)
 
   return json_decode($result, true);
 }
-//yt
+//curl yt
 $result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCoIiiHof6BJ85PLuLkuxuhw&key=AIzaSyB1A4--UgtgVEMkb0h71JNsenlLwFt4JgA');
 $ytprofil = $result['items'][0]['snippet']['thumbnails']['high']['url'];
 $ytname = $result['items'][0]['snippet']['title'];
@@ -18,7 +18,7 @@ $ytsub = $result['items'][0]['statistics']['subscriberCount'];
 $result2 = get_CURL('https://www.googleapis.com/youtube/v3/search?key=AIzaSyB1A4--UgtgVEMkb0h71JNsenlLwFt4JgA&channelId=UCoIiiHof6BJ85PLuLkuxuhw&maxResults=1&order=date&part=snippet');
 $ytvideo = $result2['items'][0]['id']['videoId'];
 
-//ig
+//curl ig
 $resultig = get_CURL('https://graph.instagram.com/me/media?fields=id,username,caption,permalink,media_url,thumbnail_url&access_token=IGQWRORXd5UmtwU2VHa3NXYUhmY1ZALVm8xWUpSZAFVpMldtTm03NjhMdy1XeTFQWFNWa24zemlzR0p6UEJWV1FqMUdEMWFoUDdCQl9MRmVFNjNSd3JHTW93emhYaTluR1pqY2Q5T0pqRWhadwZDZD');
 $igpp = $resultig['data'][0]['media_url'];
 $iglink = $resultig['data'][0]['permalink'];
@@ -82,7 +82,7 @@ $igusername = $resultig['data'][0]['username'];
     <!-- ------hero end------ -->
   </header>
 
-  <!-- ------About me start------ -->
+  <!-- ------YT start------ -->
   <section id="about" class="section-ab">
     <div class="container about-container">
       <div class="row">
@@ -108,10 +108,9 @@ $igusername = $resultig['data'][0]['username'];
       </div>
     </div>
   </section>
-  <!-- ------About me end------ -->
+  <!-- ------YT end------ -->
 
   <!-- ------API IG Start------ -->
-  <!--token : IGQWRPYVpDXzB0NmtwbzlLYVA1ZA2tDYy1WUzJZAV3BETmo3aURyN2xHdkxNVW9pZAjAtRFpQZA1ItT1Q0TXZAYdU5hdXMydWUwZAUNJVXJnWTVBWjJwYlY0R1YxWmZA1dm5kSXVnbUdWUVdZAY0dRck5KNTdPdUplUGI1em8ZD -->
   <section id="about" class="section-sk">
     <div class="container about-container">
       <div class="row">
@@ -129,7 +128,7 @@ $igusername = $resultig['data'][0]['username'];
       </div>
     </div>
   </section>
-  <!-- ------Skill end------ -->
+  <!-- ------ end------ -->
 
   <!-- script -->
   <script>
@@ -139,4 +138,3 @@ $igusername = $resultig['data'][0]['username'];
 </body>
 
 </html>
-<!-- IGQWRPUWh1SVlwY0x6OFpPenA4aVRYQm1QRmtCR1FXSlpCbURvbFVVY3BEU1RvZAEM0X19jVEtDNVMxR1NGbmhhVDI2SWpIbGpxMVU5RTNIRFJXLWYwbS1LLXc1LWYyMDhZASElKLTVEVEpuTHdXYWdqU0tWSXBrRlkZD -->
