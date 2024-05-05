@@ -19,10 +19,14 @@ $result2 = get_CURL('https://www.googleapis.com/youtube/v3/search?key=AIzaSyB1A4
 $ytvideo = $result2['items'][0]['id']['videoId'];
 
 //curl ig
-$resultig = get_CURL('https://graph.instagram.com/me/media?fields=id,username,caption,permalink,media_url,thumbnail_url&access_token=IGQWRORXd5UmtwU2VHa3NXYUhmY1ZALVm8xWUpSZAFVpMldtTm03NjhMdy1XeTFQWFNWa24zemlzR0p6UEJWV1FqMUdEMWFoUDdCQl9MRmVFNjNSd3JHTW93emhYaTluR1pqY2Q5T0pqRWhadwZDZD');
-$igpp = $resultig['data'][0]['media_url'];
-$iglink = $resultig['data'][0]['permalink'];
-$igusername = $resultig['data'][0]['username'];
+$resultig = get_CURL('https://graph.facebook.com/v19.0/17841402455306069?fields=business_discovery.username(candraaprtma){followers_count,media_count,biography,profile_picture_url,media{id,caption,comments_count,like_count,%20timestamp,username,media_type,media_url}}&access_token=EAAGjYbaLwZBABO4VWecZB0R8euA0eqgzxX7UXSs9go1qrDELztN4yF8GMxeTtSwfyMNGMzHYXtIa4VFOvwbOszg8ZAvQTGylZAg1xVxnwjDLbLetpQAlTRiEYLxtuAxgWKXiXdbNiloiHbWAgLWvrctC759D6L2xyZBw593KkRjwk2edpAH3TAIetMAXZATjZCRiFZADWS3iQrRj0NG7FAxZC');
+$igpp = $resultig['business_discovery']['profile_picture_url'];
+$igfollower = $resultig['business_discovery']['followers_count'];
+$igusername = $resultig['business_discovery']['media']['data'][0]['username'];
+$igpostingan = $resultig['business_discovery']['media']['data'][0]['media_url'];
+$igcaption = $resultig['business_discovery']['media']['data'][0]['caption'];
+$iglike = $resultig['business_discovery']['media']['data'][0]['like_count'];
+$igcomment = $resultig['business_discovery']['media']['data'][0]['comments_count'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +96,7 @@ $igusername = $resultig['data'][0]['username'];
       </div>
       <div class="row col-12">
         <div class="col-6 ">
-          <img class="img " src="<?= $ytprofil; ?>" alt="">
+          <img class="poto-yt" src="<?= $ytprofil; ?>" alt="">
         </div>
         <div class="col-6">
           <p class="label-chanel"><?= $ytname; ?></p>
@@ -120,10 +124,24 @@ $igusername = $resultig['data'][0]['username'];
       </div>
       <div class="row col-12">
         <div class="col-6 ">
-          <img class="img " src="<?= $igpp; ?>" alt="">
+          <img class="poto-profil-ig" src="<?= $igpp; ?>" alt="">
         </div>
         <div class="col-6">
-          <p class="label-video">@<?= $igusername; ?></p>
+          <p class="label-chanel">@<?= $igusername; ?></p>
+          <p class="label-chanel-sub"><?= $igfollower; ?> Follower</p>
+        </div>
+      </div>
+    </div>
+    <div class="container container-gambar-ig">
+      <div class="label-video">Postingan Terbaru :</div>
+      <div class="row col-12">
+        <div class="col-6">
+          <img class="poto-post" src="<?= $igpostingan ?>" alt="">
+        </div>
+        <div class="col-6">
+          <label class="label-caption text-white" for="">Caption : <?= $igcaption ?></label>
+          <p class="label-desc text-white" for="">like : <?= $iglike ?></p>
+          <p class="label-desc text-white" for="">comment : <?= $igcomment ?></p>
         </div>
       </div>
     </div>
